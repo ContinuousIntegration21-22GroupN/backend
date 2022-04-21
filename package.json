@@ -1,0 +1,19 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backend for CI/CD semester project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ContinuousIntegration21-22GroupN/backend.git"
+  },
+  "author": "Anna & Paul",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ContinuousIntegration21-22GroupN/backend/issues"
+  },
+  "homepage": "https://github.com/ContinuousIntegration21-22GroupN/backend#readme"
+}
