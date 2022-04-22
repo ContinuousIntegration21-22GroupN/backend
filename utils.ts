@@ -6,7 +6,7 @@ export const sendHttpError = (
 ) => {
   const { status, message } = options;
   res.statusCode = status;
-  switch (status) {
+  switch (res.statusCode) {
     case 404:
       res.statusMessage = "Not found";
       break;
@@ -24,7 +24,7 @@ export const sendHttpResponse = (
 ) => {
   const { status, data } = options;
   res.statusCode = status || 200;
-  switch (status) {
+  switch (res.statusCode) {
     case 200:
       res.statusMessage = "Success";
       break;
