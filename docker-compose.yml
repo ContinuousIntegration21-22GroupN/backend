@@ -1,0 +1,19 @@
+version: "3.5"
+
+services:
+  jenkins:
+    container_name: jenkins
+    image: jenkins/jenkins:jdk11
+    restart: unless-stopped
+    user: root
+    privileged: true
+    ports:
+      - 8080:8080
+      - 50000:50000
+    volumes:
+      - jenkins-volume:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+
+volumes:
+  jenkins-volume:
+    driver: local
