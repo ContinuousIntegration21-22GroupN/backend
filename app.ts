@@ -1,6 +1,6 @@
 import http from "http";
+import { getAllCharacters, getOneCharacterById } from "./dao/dao_characters";
 
-import * as got from "./data.json";
 import { sendHttpError, sendHttpResponse } from "./utils";
 
 const port = process.env.PORT || 3000;
@@ -13,23 +13,27 @@ const server = http.createServer((req, res) => {
   }
   const [_, resourse, id] = req.url?.split("/") || [];
 
-  if (resourse === "characters") {
-    if (!id) {
-      // return all characters
-      sendHttpResponse(res, { data: got.characters });
-      return;
-    }
+  switch (resourse) {
+    case "characters": {
+      if (!id) {
+        sendHttpResponse(res, { data: getAllCharacters() });
+        return;
+      }
 
-    const character = got.characters.find((character) => character.id == id);
-    if (character) {
-      sendHttpResponse(res, {
-        data: character,
-      });
-    } else {
-      sendHttpError(res, { status: 404, message: "Character not found" });
+      const character = getOneCharacterById(id);
+      if (character) {
+        sendHttpResponse(res, {
+          data: character,
+        });
+      } else {
+        sendHttpError(res, { status: 404, message: "Character not found" });
+      }
+      break;
     }
-  } else {
-    sendHttpError(res, { status: 404 });
+    default: {
+      sendHttpError(res, { status: 404 });
+      break;
+    }
   }
 });
 
