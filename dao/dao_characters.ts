@@ -1,9 +1,9 @@
-import * as got from "../data.json";
+import * as got from '../data.json';
 
 export const getAllCharacters = () => {
-  return got.characters;
+    return got.characters;
 };
 
 export const getOneCharacterById = (id: string) => {
-  return got.characters.find((character) => character.id == id);
+    return got.characters.find((character) => character.id == id);
 };
