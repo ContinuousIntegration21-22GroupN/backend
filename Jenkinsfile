@@ -4,6 +4,7 @@ pipeline {
         stage('lint'){
             steps {
                 sh 'npm install'
+                sh 'npm run prettify'
                 sh 'npm run lint'
             }
         }
