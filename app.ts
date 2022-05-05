@@ -7,13 +7,14 @@ const port = process.env.PORT || 3000;
 
 const server = http.createServer((req, res) => {
     res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Access-Control-Allow-Origin', '*');
 
     if (req.method !== 'GET') {
         sendHttpError(res, { status: 404 });
     }
-    const [, resourse, id] = req.url?.split('/') || [];
+    const [, resource, id] = req.url?.split('/') || [];
 
-    switch (resourse) {
+    switch (resource) {
         case 'characters': {
             if (!id) {
                 sendHttpResponse(res, { data: getAllCharacters() });
