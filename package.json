@@ -9,8 +9,8 @@
         "start": "node dist/app.js",
         "prettify": "npx prettier --write .",
         "lint": "npx eslint .",
-        "test:unit": "nyc npx mocha --reporter spec --recursive -r ts-node/register 'tests/unit/*.ts'",
-        "test:integration": "nyc npx mocha --reporter spec --recursive -r ts-node/register 'tests/integration/*.ts'"
+        "test:unit": "nyc npx mocha --exit --reporter spec --recursive -r ts-node/register 'tests/unit/*.ts'",
+        "test:integration": "nyc npx mocha --exit --reporter spec --recursive -r ts-node/register 'tests/integration/*.ts'"
     },
     "repository": {
         "type": "git",
