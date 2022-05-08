@@ -28,7 +28,8 @@ pipeline {
                 branch 'master'
             }
             steps {
-                sh 'echo deploying...'
+                sh 'docker build -t annawithtwon/ci-cd-semester-project .'
+                sh 'docker push annawithtwon/ci-cd-semester-project'
             }
         }
     }
