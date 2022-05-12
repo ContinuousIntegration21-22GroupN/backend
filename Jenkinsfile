@@ -1,4 +1,7 @@
 pipeline {
+    environment {  
+        app = '' 
+    }
     agent { docker { image 'node:14.17.6-alpine' } }
     stages {
         stage('lint'){
@@ -21,6 +24,9 @@ pipeline {
         stage('build') {
             steps {
                 sh 'npm run build'
+                script {
+                    app = docker.build("annawithtwon/ci-cd-semester-project .") 
+                }
             }
         }
         stage('deploy') {
@@ -28,8 +34,9 @@ pipeline {
                 branch 'master'
             }
             steps {
-                sh 'docker build -t annawithtwon/ci-cd-semester-project .'
-                sh 'docker push annawithtwon/ci-cd-semester-project'
+                script {
+                    app.push()
+                }
             }
         }
     }
