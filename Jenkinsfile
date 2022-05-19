@@ -34,7 +34,7 @@ pipeline {
             }
             steps {
                 withCredentials([usernamePassword(credentialsId: 'DockerHub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                    sh "docker login -u ${USERNAME} -p ${PASSWORD}"
+                    sh 'docker login -u $USERNAME -p $PASSWORD'
                     sh 'docker build -t annawithtwon/ci-cd-semester-project .'
                     sh 'docker push annawithtwon/ci-cd-semester-project'
                 }
