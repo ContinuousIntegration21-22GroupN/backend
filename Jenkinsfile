@@ -4,8 +4,8 @@ pipeline {
         stage('build') {
             agent { docker { image 'node:14.17.6-alpine' } }
             steps {
-                sh 'npm run build'
                 sh 'npm install'
+                sh 'npm run build'
             }
         }
         stage('lint'){
