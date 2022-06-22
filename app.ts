@@ -27,7 +27,7 @@ const server = http.createServer((req, res) => {
                     data: character,
                 });
             } else {
-                sendHttpError(res, { status: 404, message: 'Character not found' });
+                sendHttpError(res, { status: 400, message: 'Character not found' });
             }
             break;
         }

@@ -5,6 +5,7 @@ import { getAllCharacters, getOneCharacterById } from '../../dao/dao_characters'
 describe('testing dao for characters', () => {
     it('should return all characters', () => {
         const result = getAllCharacters();
+
         expect(result).to.be.an('array');
         expect(result).to.have.length(16);
     });
